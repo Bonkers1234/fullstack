@@ -26,7 +26,7 @@ const blogsInDb = async () => {
 }
 
 
-exports.module = {
+module.exports = {
     initialBlogs,
     blogsInDb,
 }
