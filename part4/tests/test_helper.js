@@ -1,5 +1,6 @@
 
 const Blog = require('../models/blog')
+const User = require('../models/user')
 
 const initialBlogs = [
     {
@@ -25,10 +26,34 @@ const blogsInDb = async () => {
     return blogs.map(blog => blog.toJSON())
 }
 
+const usersInDb = async () => {
+    const users = await User.find({})
+    return users.map(user => user.toJSON())
+}
+
+const createUserToken = async (api) => {
+    const user = {
+        username: "Johnny",
+        name: "John",
+        password: "secret_password"
+    }
+
+    await api
+        .post('/api/users')
+        .send(user)
+
+    const result = await api
+        .post('/api/login')
+        .send({ username: "Johnny", password: "secret_password" })    
+
+    return result.body.token
+}
 
 module.exports = {
     initialBlogs,
     blogsInDb,
+    usersInDb,
+    createUserToken,
 }
 
 

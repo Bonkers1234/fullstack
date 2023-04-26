@@ -1,15 +1,46 @@
 
 GET http://localhost:3003/api/blogs
 
-
-
 ###
 POST http://localhost:3003/api/blogs
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkJyYW5kb24iLCJpZCI6IjY0NDU5MjBkNDVmNjNjYmE5MzZkOTU0NCIsImlhdCI6MTY4MjMzNjU3Nn0.rkKIsc8EfgxveWKl6NzPcuwX0uOqdGDVkvOKMnkB6Co
 
 {
-    "title": "Old title",
-    "author": "Noone",
-    "url": "https://whatever.com",
-    "likes": 1235
+    "title": "Middleware Check",
+    "author": "Brandon",
+    "url": "https://checkdotcom.com",
+    "likes": 43,
+    "user": "6445920d45f63cba936d9544"
 }
+
+###
+GET http://localhost:3003/api/users
+
+###
+POST http://localhost:3003/api/users
+Content-Type: application/json
+
+{
+    "username": "Brandon",
+    "name": "Brand",
+    "password": "secret_password"
+}
+
+
+###
+POST http://localhost:3003/api/login
+Content-Type: application/json
+
+{
+    "username": "Brandon",
+    "password": "secret_password"
+}
+
+###
+DELETE http://localhost:3003/api/blogs/6445923845f63cba936d954a
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkJyYW5kb24iLCJpZCI6IjY0NDU5MjBkNDVmNjNjYmE5MzZkOTU0NCIsImlhdCI6MTY4MjQyODY0NiwiZXhwIjoxNjgyNDMyMjQ2fQ.ilgH_CiB-SMD3ph_KVRNMIKGzFgcOZ1S-Df2uZvOOU0
+
+
+
+
