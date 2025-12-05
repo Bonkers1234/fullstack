@@ -84,6 +84,16 @@ const App = () => {
           }, 4000);
           setPersons(persons.concat(response))
         })
+        .catch(error => {
+          const message = {
+            text: `${error.response.data.error}`,
+            className: 'failure'
+          }
+          setMessage(message)
+          setTimeout(() => {
+            setMessage(null)
+          }, 4000);
+        })
       setNewName('')
       setNewNumber('')
     } else {
@@ -104,14 +114,13 @@ const App = () => {
         })
         .catch(error => {
           const message = {
-            text: `Information of ${object.name} has already been removed from server`,
+            text: `${error.response.data.error}`,
             className: 'failure'
           }
           setMessage(message)
           setTimeout(() => {
             setMessage(null)
           }, 4000);
-          setPersons(persons.filter(person => person.name !== object.name))
         })
       }
       setNewName('')
